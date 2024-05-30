@@ -1,5 +1,15 @@
 (function ($) {
 
+	$("ul.navbar-nav li.nav-item").click(function () {
+		var click = $(this).html();
+		if ($("ul.navbar-nav li").hasClass("active"))
+		{
+			$("ul.navbar-nav li").removeClass("active");
+		}
+		$(this).addClass("active");
+	});
+
+
 	$("form#contactusfrm").submit(function () {
 		$.ajax({
 			url: 'components/sendMsg.php?name=' + $("#fName").val() + '&email=' + $("#email").val() + '&service=' + $("#service").val() + '&msg=' + $("#msg").val(),
