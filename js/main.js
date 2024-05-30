@@ -1,4 +1,39 @@
-(function($) {
+(function ($) {
+
+	$("form#contactusfrm").submit(function () {
+		$.ajax({
+			url: 'components/sendMsg.php?name=' + $("#fName").val() + '&email=' + $("#email").val() + '&service=' + $("#service").val() + '&msg=' + $("#msg").val(),
+			success: function(result, status, xhr) {
+				if (status == 'success') {
+					if (result)
+					{
+						$("#alert").addClass("bg-success text-white");
+						$("#alert").html("Your Message Have Been Sent!");
+						$("#alert").fadeIn("slow");
+						$("#alert").fadeOut(5000);
+					}
+					else
+					{
+						$("#alert").addClass("bg-warning text-white");
+						$("#alert").html("Your message not have been sent! Try again! Or contact the webmaster!!");
+						$("#alert").fadeIn("slow");
+						$("#alert").fadeOut(5000);
+					}
+				}
+				else
+				{
+					alert(xhr);
+				}
+			},
+			error: function (xhr, status, error) {
+				if (status != 'success') {
+					alert(error);
+					alert(xhr.message);
+				}
+			}
+		});
+		return false;
+	});
 
 	"use strict";
 
@@ -191,7 +226,6 @@
 	};
 	contentWayPoint();
 
-
 	// magnific popup
 	$('.image-popup').magnificPopup({
     type: 'image',
@@ -223,7 +257,4 @@
     fixedContentPos: false
   });
 
-
-
 })(jQuery);
-
