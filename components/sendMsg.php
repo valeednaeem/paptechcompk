@@ -12,8 +12,8 @@
     $service        = $_REQUEST['service'];
     $msg            = $_REQUEST['msg'];
 
-    //$to             = "info@paptech.com.pk";
-    $to             = "valeednaeem@localhost.com";
+    $to             = "info@paptech.com.pk";
+    //$to             = "valeednaeem@gmail.com";
     $subject        = "Client Query from ".$name." - Paptech IT Solutions";
 
     // Always set content-type when sending HTML email
@@ -22,7 +22,7 @@
 
     // More headers
     $headers .= 'From: '.$name.'<'.$email.'>' . "\r\n";
-    //$headers .= 'Cc: valeednaeem@localhost.com' . "\r\n";
+    $headers .= 'Cc: valeednaeem@gmail.com' . "\r\n";
     $headers .= 'ReplyTo: '.$email."\r\n";
 
     $message = "
