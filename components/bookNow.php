@@ -29,7 +29,7 @@
 <html>
 <body>
 <div>
-<h2>Services Inquery - Paptech IT Solutions</h2>
+<h2>Consultancy Inquery - Paptech IT Solutions</h2>
 
 <h3>Visitor Name <Email></h3>
 <p>".$name." - <<a href='mailto:".$email."'>".$email."</a>></p>
