@@ -1,48 +1,49 @@
 <?php
-/*
+
     header('Access-Control-Allow-Origin: localhost');
     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
     header('Access-Control-Allow-Headers: token, Content-Type');
     header('Access-Control-Max-Age: 1728000');
     header('Content-Length: 0');
     header('Content-Type: text/plain');
-*/
 
-    $to             = "info@paptech.com.pk";
-    $subject        = "Client Query from $name - Paptech IT Solutions";
     $email          = $_REQUEST['email'];
     $name           = $_REQUEST['name'];
     $service        = $_REQUEST['service'];
     $msg            = $_REQUEST['msg'];
+
+    //$to             = "info@paptech.com.pk";
+    $to             = "valeednaeem@localhost.com";
+    $subject        = "Client Query from ".$name." - Paptech IT Solutions";
 
     // Always set content-type when sending HTML email
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     // More headers
-    $headers .= 'From: $name<$email>' . "\r\n";
-    $headers .= 'Cc: info@paptech.edu.pk, valeednaeem@gmail.com' . "\r\n";
-    $headers .= 'ReplyTo: $email' . "\r\n";
+    $headers .= 'From: '.$name.'<'.$email.'>' . "\r\n";
+    //$headers .= 'Cc: valeednaeem@localhost.com' . "\r\n";
+    $headers .= 'ReplyTo: '.$email."\r\n";
 
     $message = "
 <html>
 <head>
-<title>Paptech IT Solutions - $name</title>
+<title>Paptech IT Solutions - ".$name."</title>
 </head>
 <body>
-<h2>Services Inquery - Paptech IT Solutions</h2>
 <div>
+<h2>Services Inquery - Paptech IT Solutions</h2>
 
-<h3>Visitor Name</h3>
-<p>$name</p>
+<h3>Visitor Name <Email></h3>
+<p>".$name." - <<a href='mailto:".$email."'>".$email."</a>></p>
 
 <h3>Service Requested</h3>
-<td>$service</td>
+<p>".$service."</p>
 
 <h3>Short Message</h3>
-<td>$msg</td>
-
+<p>".$msg."</p>
 </div>
+<small style='color: red;'>This email is auto generated from online contact form on PAPTECH.COM.PK</small>
 </body>
 </html>
 ";
