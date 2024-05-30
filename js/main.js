@@ -47,22 +47,22 @@
 
 	$("form#contactForm").submit(function () {
 		$.ajax({
-			url: 'components/bookNow.php?name=' + $("#fName").val() + '&email=' + $("#email").val() + '&service=' + $("#service").val() + '&msg=' + $("#msg").val(),
+			url: 'components/bookNow.php?name=' + $("#name").val() + '&email=' + $("#email").val() + '&subject=' + $("#subject").val() + '&msg=' + $("#message").val(),
 			success: function(result, status, xhr) {
 				if (status == 'success') {
 					if (result == true)
 					{
-						$("#alert").addClass("bg-success");
-						$("#alert").html("Your Message Have Been Sent!");
-						$("#alert").fadeIn("slow");
-						$("#alert").fadeOut(5000);
+						$(".submitting").addClass("bg-success");
+						$(".submitting").html("Your Message Have Been Sent!");
+						$(".submitting").fadeIn("slow");
+						$(".submitting").fadeOut(5000);
 					}
 					else
 					{
-						$("#alert").addClass("bg-danger");
-						$("#alert").html("Your message not have been sent! Try again! Or contact the webmaster!!");
-						$("#alert").fadeIn("slow");
-						$("#alert").fadeOut(5000);
+						$(".submitting").addClass("bg-danger");
+						$(".submitting").html("Your message not have been sent! Try again! Or contact the webmaster!!");
+						$(".submitting").fadeIn("slow");
+						$(".submitting").fadeOut(5000);
 					}
 				}
 				else
