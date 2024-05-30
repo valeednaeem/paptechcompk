@@ -15,7 +15,7 @@
 			url: 'components/sendMsg.php?name=' + $("#fName").val() + '&email=' + $("#email").val() + '&service=' + $("#service").val() + '&msg=' + $("#msg").val(),
 			success: function(result, status, xhr) {
 				if (status == 'success') {
-					if (result == true)
+					if (result)
 					{
 						$("#alert").addClass("bg-success");
 						$("#alert").html("Your Message Have Been Sent!");
@@ -50,7 +50,7 @@
 			url: 'components/bookNow.php?name=' + $("#name").val() + '&email=' + $("#email").val() + '&subject=' + $("#subject").val() + '&msg=' + $("#message").val(),
 			success: function(result, status, xhr) {
 				if (status == 'success') {
-					if (result == true)
+					if (result)
 					{
 						$(".submitting").addClass("bg-success");
 						$(".submitting").html("Your Message Have Been Sent!");
