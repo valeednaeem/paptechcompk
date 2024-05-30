@@ -27,9 +27,6 @@
 
     $message = "
 <html>
-<head>
-<title>Paptech IT Solutions - ".$name."</title>
-</head>
 <body>
 <div>
 <h2>Services Inquery - Paptech IT Solutions</h2>
